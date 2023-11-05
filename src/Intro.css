@@ -1,0 +1,41 @@
+body.no-scroll {
+    overflow: hidden; /* Lock the scroll */
+  }
+  
+  .intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    position: fixed; /* Overlay on top of the page */
+    transition: opacity 1s ease-out; /* Smooth fade-out transition */
+    background-size: cover;
+    background-position: center;
+
+  }
+  
+  .fade-out {
+    opacity: 0;
+    visibility: hidden; /* Ensure it doesn't block interaction below */
+    transition: opacity 1s ease-out, visibility 1s ease-out; /* Apply the transition on fade-out as well */
+
+  }
+  .intro-content {
+    background: rgba(255, 255, 255, 0.8); /* White background with some opacity */
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px; /* Max width of the text box */
+  }
+  .loaderIcon{
+    animation: spin 5s infinite linear;
+  }
+  @keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
