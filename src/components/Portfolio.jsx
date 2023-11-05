@@ -1,58 +1,53 @@
-import React, {useEffect, useState} from 'react';
-import { Button, Card, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import '../Portfolio.css'; // Importing a CSS file for styling
 
-
-
-// A single Project component
-const Project = ({ title, description, imageUrl, liveLink, moreDetail, contextImages = []}) => {
-  const [showMore, setShowMore] = useState(false);
-  const butt = <Button className="btn" onClick={() => setShowMore(!showMore)}>{showMore ? "Show less" : "Show more"}</Button>
-
-  const images = contextImages.map((image,index) =>{
-    return(<img key = {index} src = {image} style={{width:'50%'}}></img>)
-  })
-
+const Project = ({ title, description, imageUrl, liveLink, moreDetail, index, setFocusedIndex, isFocused }) => {
+  const projectStyle = {
+    // Other styles can be included here if needed
+    width: isFocused ? '1000px' : '200px', // or any other size you prefer
+    height: isFocused ? '1000px' : '300px', // adjust '450px' as needed for your default height
+  };
 
   return (
-    <div className="project" style={{ width: showMore ? '1000px':'320px',justifyContent: showMore ? 'center':'left'}}>
-      <img src={imageUrl} style = {{width: showMore ? '192px':'64px'}}alt={title} className="project-image" />
+    <div className={`project ${isFocused ? 'focused' : ''}`} style = {projectStyle}>
+      <img src={imageUrl} alt={title} className="project-image" />
       <div className="project-details">
         <h3>{title}</h3>
         <p>{description}</p>
-        <div className="detail-container" style={{height: showMore ? '650px' : '0'}}>
-          {showMore && <div className="more-detail">{moreDetail} </div>}
-          {showMore && <div className="detail-images">{images}</div>}
-        </div>
+        {isFocused && <div className="more-detail">{moreDetail}</div>}
         <div className="project-links">
           {liveLink && (
             <a href={liveLink} target="_blank" rel="noopener noreferrer">
               Live Link
             </a>
           )}
-          {butt}
+          <Button className="btn" onClick={() => setFocusedIndex(isFocused ? null : index)}>
+            {isFocused ? "Show less" : "Show more"}
+          </Button>
         </div>
       </div>
     </div>
   );
 };
 
-// The Portfolio component that renders a list of Project components
 const Portfolio = ({ projects }) => {
+  const [focusedIndex, setFocusedIndex] = useState(null);
+
   return (
     <section id="portfolio">
-      <h2 style = {{fontSize:30}}>Welcome to my Portfolio!</h2>
-      <p style = {{fontWeight: 300,fontSize:20}}>Here's a list of some of my favorite projects:</p>
+      <h2>Welcome to my Portfolio!</h2>
+      <p>Here's a list of some of my favorite projects:</p>
       <div className="projects-container">
-        
-      <Row  xl = {3} lg = {3} md = {3} sm = {3} xs = {3}>
-            <Col xl = {3} lg = {3} md = {3} sm = {3} xs = {3}>
-                {projects.map((project, index) => (
-                    <Project key={index} {...project} />
-                ))}
-
-            </Col>
-          </Row>
+        {projects.map((project, index) => (
+          <Project
+            key={index}
+            index={index}
+            {...project}
+            setFocusedIndex={setFocusedIndex}
+            isFocused={index === focusedIndex}
+          />
+        ))}
       </div>
     </section>
   );
