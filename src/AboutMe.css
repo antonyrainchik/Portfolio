@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     padding: 50px;
-    background: #f0f0f0; /* Light grey background */
+    background: #525252; 
   }
   
   .about-me-section {
@@ -16,10 +16,10 @@
   }
   
   .profile-picture {
-    width: 150px; /* Adjust as needed */
-    height: 150px; /* Adjust as needed */
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
     border-radius: 50%; /* Circular image */
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 20px;
   }
   

@@ -7,8 +7,8 @@ const AboutMe = () => {
       <section className="about-me-section">
         <h1>About Me</h1>
         <img 
-          src="your-image-url.jpg" // Replace with your image URL
-          alt="Your Name"
+          src="src/assets/bioPic.jpg" // Replace with your image URL
+          alt="Me!"
           className="profile-picture"
         />
         <p>
@@ -20,13 +20,13 @@ const AboutMe = () => {
         <p>
           My journey has taken me through a diverse set of experiences, from designing
           intricate support structures for 3D printing to developing software that optimizes
-          industrial processes. I thrive on challenges and continuously seek to learn and grow
+          engineering processes. I thrive on challenges and continuously seek to learn and grow
           in my career.
         </p>
         <p>
           When I'm not engineering or coding, I'm likely tinkering with gadgets, exploring
-          the great outdoors, or immersed in a good book. Let's connect and create something
-          amazing together!
+          the great outdoors, or watching tool restoration videos on YouTube. Let's connect 
+          and create something amazing together!
         </p>
       </section>
     </div>

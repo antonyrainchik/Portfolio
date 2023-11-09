@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Portfolio from './components/Portfolio';
 import Intro from './components/Intro';
 import AboutMe from './components/AboutMe'
+import ContactInfo from './components/ContactMe';
 const projects = [
   {
     title: 'Breakaway Supports',
@@ -37,9 +38,38 @@ const projects = [
     </div>
   },
   {
-    title: 'Project Two',
-    description: 'This is a brief description of Project Two.',
-    imageUrl: 'src/assets/Z2WuGgz0_400x400.png',
+    title: 'Fast Arches',
+    description: 'A new product for faster print speeds',
+    imageUrl: 'src/assets/FLogo.png',
+    contextImages:['src/assets/FA.png','src/assets/FATeeth.JPG'],
+    liveLink: 'https://dental.formlabs.com/blog/fast-arch-settings/',
+    moreDetail:
+    <div>
+  <p>
+    <b>Objective:</b> Worked across teams (Marketing, Software, Dental, R&D) to develop printer settings optimized for speed and accuracy, targeting orthodontic models for thermoforming retainers, with the potential of a complete retainer within a single visit to the dentist.
+  </p>
+  <p><b>
+    Technical Details:
+  </b></p>
+  <ul>
+    <li>
+      Draft V2 Resin and Grey V4 Resin
+    </li>
+    <li>
+      100um and 200um layer heights
+    </li>
+    <li>
+      Formlabs 3B/3B+
+    </li>
+  </ul>
+  <p>
+    <b>Process:</b> Primarily responsible for the development of the 100um Draft v2 printer setting, which involved testing changes to the printing process to increase speed while still maintaining accuracy. Performed validations and accuracy scan work with all developed settings to ensure specifications were met.
+  </p>
+  <p>
+    <b>Conclusion:</b> Print time was reduced from over an hour to about 20 minutes for a full set of 8 arches, or under 10 minutes for a single arch.
+  </p>
+</div>
+
   },
   {
     title: 'Project 3',
@@ -52,9 +82,9 @@ const projects = [
     imageUrl: 'url-to-image-4.jpg',
   },
   {
-    title: 'Project 5',
-    description: 'This is a brief description of Project 5.',
-    imageUrl: 'url-to-image-5.jpg',
+    title: 'My Portfolio Website',
+    description: 'Wrote a portfolio website using React',
+    imageUrl: 'src/assets/react.svg',
   }
   // ... more projects
 ];
@@ -77,6 +107,7 @@ function App(){
       {introVisible && <Intro onFadeComplete={handleFadeComplete} backgroundImage="src/assets/linkedinBackground.jpeg"/>}
       <AboutMe/>
       <Portfolio projects={projects} />
+      <ContactInfo/>
     </React.StrictMode>
   );
 }

@@ -1,7 +1,7 @@
 #portfolio {
   text-align: center;
   padding: 50px;
-  background-color: #f7f7f7;
+  background-color: #cfcfcf;
 }
 
 .projects-container {
@@ -18,20 +18,18 @@
   background-color: #ffffff;
   border-radius: 2%;
   transition: all 0.5s ease;
-  position: relative;
   max-height: 1000px;
   overflow: hidden;
+  
  
 }
 
 .project.focused {
   /* Horizontally centers the project with respect to the container */
-  margin-left: calc(50% - 160px); /* Half viewport width - half element width */
-  transform: translateY(-20px) scale(1.1); /* Moves up and scales */
   z-index: 10;
   overflow: hidden;
-  transition: all 0.5s ease;
-  height: 600px;
+  transition: all .75s ease;
+  height: auto;
   max-height: 1000px;
 
 }
