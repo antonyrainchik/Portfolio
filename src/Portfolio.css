@@ -7,34 +7,20 @@
 .projects-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align projects to the left */
-  transition: transform 0.5s;
 }
 
-.project {
-  width: 320px;
-  margin-bottom: 20px;
+.project{
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  border-radius: 2%;
-  transition: all 0.5s ease;
-  max-height: 1000px;
-  overflow: hidden;
-  
- 
+  overflow: hidden;  
 }
 
-.project.focused {
-  /* Horizontally centers the project with respect to the container */
-  z-index: 10;
-  overflow: hidden;
-  transition: all .75s ease;
-  height: auto;
-  max-height: 1000px;
-
-}
 
 .project-image {
+  margin: auto;
   width: 64px;
   border-radius: 50%;
   transition: width 0.5s ease;
@@ -74,4 +60,8 @@ ul {
   display: table; 
   margin: 0 auto;
   text-align: left;
+}
+
+.inner {
+  overflow: hidden;
 }

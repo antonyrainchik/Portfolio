@@ -1,38 +1,41 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import AnimateHeight from 'react-animate-height';
 import '../Portfolio.css'; // Importing a CSS file for styling
 
-const Project = ({ title, description, imageUrl, liveLink, moreDetail, index, setFocusedIndex, isFocused, contextImages = [] }) => {
-  const projectStyle = {
-    // Other styles can be included here if needed
-    width: isFocused ? '100%' : '400px', // or any other size you prefer
-    height: isFocused ? '1000px' : '225px', // adjust '450px' as needed for your default height
-  };
-  const images = contextImages.map((image, idx) => (
+const Project = ({ title, description, imageUrl, liveLink, moreDetail, isFocused, contextImages = [] }) => {
+   const images = contextImages.map((image, idx) => (
     <img key={idx} src={image} style={{ width: '50%',height:'400px',objectFit:'contain' }} alt={`Context ${idx}`} />
   ));
+  const [isOpen, setIsOpen] = useState(false);
+  const [height, setHeight] = useState(0);
+
+  const toggleWrapper = () => {
+    setIsOpen(!isOpen);
+    console.log("Toggled Open")
+  }
 
   return (
-    <div className={`project ${isFocused ? 'focused' : ''}`} style = {projectStyle}>
+    <div className={`project`}>
       <p></p>
       <img src={imageUrl} alt={title} className="project-image" />
       <div className="project-details">
         <h3>{title}</h3>
         <p>{description}</p>
-        {isFocused && <div className="more-detail">{moreDetail}</div>}
-        {isFocused && <div className="detail-images">{images}</div>}
-
-        <div className="project-links">
-          {liveLink && (
-            <a href={liveLink} target="_blank" rel="noopener noreferrer"style={{padding:'5px'}} >
-              Live Link
-            </a>
-          )}
-        <Button className="btn"  onClick={() => setFocusedIndex(isFocused ? null : index)} style={{padding:'5px'}}>
-            {isFocused ? "Show less" : "Show more"}
-        </Button>
-        </div>
-        
+        <AnimateHeight duration={1000} height={height}>
+          <div className="more-detail">{moreDetail}</div>
+          <div className="detail-images">{images}</div>
+        </AnimateHeight>  
+      </div>
+      <div className="project-links">
+        {liveLink && (
+          <a href={liveLink} target="_blank" rel="noopener noreferrer"style={{padding:'5px'}} >
+            Live Link
+          </a>
+        )}
+      <Button className="btn" onClick={()=>{setHeight(height === 0 ? 'auto' : 0),toggleWrapper()}} style={{padding:'5px'}}>
+          {isOpen ? "Show less" : "Show more"}
+      </Button>
       </div>
     </div>
   );
@@ -55,7 +58,7 @@ const Portfolio = ({ projects }) => {
             isFocused={index === focusedIndex}
           />
         ))}
-      </div>
+        </div>
     </section>
   );
 };

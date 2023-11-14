@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import Portfolio from './components/Portfolio';
 import Intro from './components/Intro';
 import AboutMe from './components/AboutMe'
 import ContactInfo from './components/ContactMe';
+import TagManager from 'react-gtm-module';
+
 const projects = [
   {
     title: 'Breakaway Supports',
-    description: 'A new support structure for Formlabs',
+    description: 'Developed a new support structure for Formlabs',
     imageUrl: 'src/assets/FLogo.png',
     liveLink: 'https://formlabs.com/blog/breakaway-supports-and-editing/',
     contextImages: ['src/assets/frangGifA.gif','src/assets/frangGifB.gif'],
@@ -39,7 +41,7 @@ const projects = [
   },
   {
     title: 'Fast Arches',
-    description: 'A new product for faster print speeds',
+    description: 'Designed a new product for faster print speeds',
     imageUrl: 'src/assets/FLogo.png',
     contextImages:['src/assets/FA.png','src/assets/FATeeth.JPG'],
     liveLink: 'https://dental.formlabs.com/blog/fast-arch-settings/',
@@ -72,25 +74,131 @@ const projects = [
 
   },
   {
-    title: 'Project 3',
-    description: 'This is a brief description of Project 3.',
-    imageUrl: 'url-to-image-3.jpg',
+    title: 'DIY Electric Longboard',
+    description: 'Built an 18650 battery pack and used a Vesc brushless motor system',
+    imageUrl: 'src/assets/VescLogo.png',
+    contextImages:['src/assets/kongboard.jpg','src/assets/boardParts.jpg'],
+    liveLink: 'https://github.com/antonyrainchik/VESC_BT_SERIAL',
+    moreDetail:<div>
+    <p>
+      <b>Objective:</b> Had previously purchased a commercial electric longboard but ended up returning that board because the price point for the low performance of that board was unjustifiable. Decided to instead spend that money to learn about brushless motor systems and outbuild the commercial board.
+    </p>
+    <p><b>
+      Technical Details:
+    </b></p>
+    <ul>
+      <li>
+        10S4P 18650 Samsung 3500 MAh Li-ion Cell battery pack, spot welded with nickel strips
+      </li>
+      <li>
+        2 6355 Brushless 260KV Motors
+      </li>
+      <li>
+        Dual FSESC 100A ESC (VESC clone)
+      </li>
+      <li>
+        2.4 GHz Radio Controller
+      </li>
+      <li>
+        ESP8266 and a Bluetooth Serial app on my phone for live telemetry (Voltage, Amperage, calculated range, etc)
+      </li>
+    </ul>
+    <p>
+      <b>Process:</b> I sourced and purchased lithium-ion battery cells, a spot welder, and nickel strips to assemble them into two battery packs with balance charge connectors. Those two packs were connected to make a singular large pack, while still allowing me to separate them to use my hobby grade balance charger to charge them. I forked code from GitHub for reading from the serial port of the VESC to an LCD display and modified it to communicate telemetry to my phone.
+    </p>
+    <p>
+      <b>Conclusion:</b> The board was absurdly powerful, and fast enough to make me worry for my safety and not push it any further without significant investment in safety gear. I rode it enough to make my feet hurt and never really put much of a dent into the range, so I achieved my goal of making a higher performance board for the same cost. My future plans involve building a more aesthetically pleasing enclosure, as the whole Tupperware enclosure doesn’t look all too professional.
+    </p>
+  </div>
+  
   },
   {
-    title: 'Project 4',
-    description: 'This is a brief description of Project 4.',
-    imageUrl: 'url-to-image-4.jpg',
+    title: 'Compression Testing of ASTM 3D Printed Samples',
+    description: 'Determining optimum orientation for compression',
+    imageUrl: 'src/assets/compSamp.jpg',
+    contextImages:['src/assets/compSamples.JPG','src/assets/allCompSamples.JPG'],
+    liveLink: 'https://tinyurl.com/yszyrvft',
+    moreDetail:<div>
+    <p>
+      <b>Objective:</b> Designed and tested own experiment as a team. Chose 3D printed parts at different orientations to empirically determine strongest print orientations to improve my own 3D printed projects.
+    </p>
+    <p><b>
+      Technical Details:
+    </b></p>
+    <ul>
+      <li>
+        22 3D Printed PLA ASTM D695 samples
+      </li>
+      <li>
+        100% Infill
+      </li>
+      <li>
+        Sintech GL/10 Machine
+      </li>
+      <li>
+        Prints oriented normal to, angled, and axial to the compression loading
+      </li>
+    </ul>
+    <p>
+      <b>Process:</b> Primarily responsible for production of samples, and designing and carrying out the experiment. The different samples were tested at differing deformation rates, to determine the impact of rates on the stress/strain relationships.
+    </p>
+    <p>
+      <b>Conclusion:</b> Determined that the samples with the greatest yield and ultimate strengths were samples that were oriented at a 45 degree angle at higher rates, but when the deformation rate was slow, the vertical orientation was strongest. One angled sample achieved 3375 pounds of force. Before this experiment, I thought that print layers angled normal to the loading would be strongest, but I wanted to prove it. I now use this information to design parts that are undergoing compression to make them stronger.
+    </p>
+  </div>
+  
+  },
+  {
+    title: 'Affordable Angle Visualizer',
+    description: 'Visualizing angle telemetry with arduino',
+    imageUrl: 'src/assets/spinning.png',
+    contextImages:[],
+    liveLink:'https://github.com/antonyrainchik/trimpot-visualization',
+    moreDetail: 
+    <div>
+    <p>
+      <b>Objective:</b> To meld my experience in 3D printing with my experience in Computer Science, to create a digital and physical representation of data. Also helped me learn C in preparation for a class. Inspired by seeing different robotic arms, to eventually develop an arm with joints that are visualized on a computer monitor in real time.
+    </p>
+    <p><b>
+      Technical Details:
+    </b></p>
+    <ul>
+      <li>
+        Arduino Uno clone
+      </li>
+      <li>
+        A cheap (50 cents ish) trimmer potentiometer
+      </li>
+      <li>
+        OpenGL and Protothreading C libraries
+      </li>
+    </ul>
+    <p>
+      <b>Process:</b> Began by figuring out how to read serial output from arduino to terminal by opening and scanning the correct USB port. Wrote some simple code to spit out the position values to ensure accuracy. Encountered some noise, so wrote a simple filter, then tried displaying position values as an angle of rotation. Program was super slow and completely lagged behind the real position data, so solved this by discovering protothreading to concurrently read values and display said values, resulting in accurate and quick real time data.
+    </p>
+    <p>
+      <b>Conclusion:</b> Program works really well, and shows accurate live position values for cheap. Future plans to rewrite code in more modern language and build whole arm using these as joints.
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/QgfQsFTfq70?si=_q9OoVgDxMhiMxtx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  </div>
   },
   {
     title: 'My Portfolio Website',
     description: 'Wrote a portfolio website using React',
-    imageUrl: 'src/assets/react.svg',
+    imageUrl: 'src/assets/react2.png',
+    moreDetail:<div>
+      <p>You're looking at it! I wrote this in a weekend, and spend some time keeping it up to date and flowing smoothly.</p>
+    </div>
   }
   // ... more projects
 ];
 
 function App(){
   const [introVisible, setIntroVisible] = useState(true);
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'G-0TQ6C8ZF2E' });
+  }, []);
 
   // Call this function when the intro should fade out
   const handleFadeComplete = () => {
