@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "vite build && gh-pages -b main -d dist",
+    "deploy": "vite build && gh-pages -b gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
