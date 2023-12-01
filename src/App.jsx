@@ -10,9 +10,9 @@ const projects = [
   {
     title: 'Breakaway Supports',
     description: 'Developed a new support structure for Formlabs',
-    imageUrl: 'src/assets/FLogo.png',
+    imageUrl: '/FLogo.png',
     liveLink: 'https://formlabs.com/blog/breakaway-supports-and-editing/',
-    contextImages: ['src/assets/frangGifA.gif','src/assets/frangGifB.gif'],
+    contextImages: ['/frangGifA.gif','/frangGifB.gif'],
     moreDetail: <div>
       <p>
       <b>Objective:</b> Worked across teams (Marketing, Software, R&D) to develop reliable frangible support structures that are crushable, via notches on vertical pillars and truncated trusses between pillars
@@ -42,8 +42,8 @@ const projects = [
   {
     title: 'Fast Arches',
     description: 'Designed a new product for faster print speeds',
-    imageUrl: 'src/assets/FLogo.png',
-    contextImages:['src/assets/FA.png','src/assets/FATeeth.JPG'],
+    imageUrl: '/FLogo.png',
+    contextImages:['/FA.png','/FATeeth.JPG'],
     liveLink: 'https://dental.formlabs.com/blog/fast-arch-settings/',
     moreDetail:
     <div>
@@ -76,8 +76,8 @@ const projects = [
   {
     title: 'DIY Electric Longboard',
     description: 'Built an 18650 battery pack and used a Vesc brushless motor system',
-    imageUrl: 'src/assets/VescLogo.png',
-    contextImages:['src/assets/kongboard.jpg','src/assets/boardParts.jpg'],
+    imageUrl: '/VescLogo.png',
+    contextImages:['/kongboard.jpg','/boardParts.jpg'],
     liveLink: 'https://github.com/antonyrainchik/VESC_BT_SERIAL',
     moreDetail:<div>
     <p>
@@ -115,8 +115,8 @@ const projects = [
   {
     title: 'Compression Testing of ASTM 3D Printed Samples',
     description: 'Determining optimum orientation for compression',
-    imageUrl: 'src/assets/compSamp.jpg',
-    contextImages:['src/assets/compSamples.JPG','src/assets/allCompSamples.JPG'],
+    imageUrl: '/compSamp.jpg',
+    contextImages:['/compSamples.JPG','/allCompSamples.JPG'],
     liveLink: 'https://tinyurl.com/yszyrvft',
     moreDetail:<div>
     <p>
@@ -151,7 +151,7 @@ const projects = [
   {
     title: 'Affordable Angle Visualizer',
     description: 'Visualizing angle telemetry with arduino',
-    imageUrl: 'src/assets/spinning.png',
+    imageUrl: '/spinning.png',
     contextImages:[],
     liveLink:'https://github.com/antonyrainchik/trimpot-visualization',
     moreDetail: 
@@ -186,7 +186,7 @@ const projects = [
   {
     title: 'My Portfolio Website',
     description: 'Wrote a portfolio website using React',
-    imageUrl: 'src/assets/react2.png',
+    imageUrl: '/react2.png',
     moreDetail:<div>
       <p>You're looking at it! I wrote this in a weekend, and spend some time keeping it up to date and flowing smoothly.</p>
     </div>
@@ -212,7 +212,7 @@ function App(){
   }
   return(
     <React.StrictMode>
-      {introVisible && <Intro onFadeComplete={handleFadeComplete} backgroundImage="src/assets/linkedinBackground.jpeg"/>}
+      {introVisible && <Intro onFadeComplete={handleFadeComplete} backgroundImage="/linkedinBackground.jpeg"/>}
       <AboutMe/>
       <Portfolio projects={projects} />
       <ContactInfo/>

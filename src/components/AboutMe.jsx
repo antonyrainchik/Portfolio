@@ -7,7 +7,7 @@ const AboutMe = () => {
       <section className="about-me-section">
         <h1>About Me</h1>
         <img 
-          src="src/assets/bioPic.jpg" // Replace with your image URL
+          src="/bioPic.jpg" // Replace with your image URL
           alt="Me!"
           className="profile-picture"
         />

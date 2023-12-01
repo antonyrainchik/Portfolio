@@ -28,14 +28,14 @@ const Project = ({ title, description, imageUrl, liveLink, moreDetail, isFocused
         </AnimateHeight>  
       </div>
       <div className="project-links">
-        {liveLink && (
+      <Button className="btn" onClick={()=>{setHeight(height === 0 ? 'auto' : 0),toggleWrapper()}} style={{padding:'5px'}}>
+          {isOpen ? "Show less" : "Project Details"}
+      </Button>
+      {liveLink && (
           <a href={liveLink} target="_blank" rel="noopener noreferrer"style={{padding:'5px'}} >
-            Live Link
+            Learn more
           </a>
         )}
-      <Button className="btn" onClick={()=>{setHeight(height === 0 ? 'auto' : 0),toggleWrapper()}} style={{padding:'5px'}}>
-          {isOpen ? "Show less" : "Show more"}
-      </Button>
       </div>
     </div>
   );
