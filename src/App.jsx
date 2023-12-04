@@ -113,9 +113,9 @@ const projects = [
   
   },{
     title: 'OCR Receipt Analyzer',
-    description: 'Attempting to simplify splitting the bill',
-    imageUrl: '/compSamp.jpg',
-    contextImages:['/receipt.JPG','/csvScreenshot.png'],
+    description: 'Attempting to simplify splitting the bill with just a picture',
+    imageUrl: '/OpenCV_logo.png',
+    contextImages:['/receipt.jpg','/csvScreenshot.png'],
     liveLink: 'https://github.com/antonyrainchik/ReceiptOCR',
     moreDetail:<div>
     <p>
