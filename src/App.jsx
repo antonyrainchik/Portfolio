@@ -111,6 +111,38 @@ const projects = [
     </p>
   </div>
   
+  },{
+    title: 'OCR Receipt Analyzer',
+    description: 'Attempting to simplify splitting the bill',
+    imageUrl: '/compSamp.jpg',
+    contextImages:['/receipt.JPG','/csvScreenshot.png'],
+    liveLink: 'https://github.com/antonyrainchik/ReceiptOCR',
+    moreDetail:<div>
+    <p>
+      <b>Objective:</b> Designed and programmed an OCR program that could read receipts for me from a photo, so that I could automate splitting the bill with my friends.
+    </p>
+    <p><b>
+      Technical Details:
+    </b></p>
+    <ul>
+      <li>
+        Python
+      </li>
+      <li>
+        OpenCV
+      </li>
+      <li>
+        PyTesseract
+      </li>
+    </ul>
+    <p>
+      <b>Process:</b> Wrote the functions to first grayscale the image, to make it easier to process. Then, it would crop the bounds of the receipt, assuming a dark background and a white reciept. Finally, I would run OCR, and then filter and parse the extracted contents based on what would be the item and what would be the price.
+    </p>
+    <p>
+      <b>Conclusion:</b> Successfully created a CSV with relatively accurate data from the photo of a receipt, but has some flaws likely due to the open source optical character recognition, so would need a higher end OCR to function reliably enough to trust with finances.
+    </p>
+  </div>
+  
   },
   {
     title: 'Compression Testing of ASTM 3D Printed Samples',
