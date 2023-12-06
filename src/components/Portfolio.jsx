@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Row, Col, Container } from 'react-bootstrap';
 import AnimateHeight from 'react-animate-height';
 import '../Portfolio.css'; // Importing a CSS file for styling
 
 const Project = ({ title, description, imageUrl, liveLink, moreDetail, isFocused, contextImages = [] }) => {
-   const images = contextImages.map((image, idx) => (
-    <img key={idx} src={image} style={{ width: '50%',height:'400px',objectFit:'contain' }} alt={`Context ${idx}`} />
+  const images = contextImages.map((image, idx) => (
+    <Col key={idx} xs={12} md={6}>
+      <img src={image} style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain' }} alt={`Context ${idx}`} />
+    </Col>
   ));
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState(0);
@@ -24,7 +26,7 @@ const Project = ({ title, description, imageUrl, liveLink, moreDetail, isFocused
         <p>{description}</p>
         <AnimateHeight duration={1000} height={height}>
           <div className="more-detail">{moreDetail}</div>
-          <div className="detail-images">{images}</div>
+          <Container><Row>{images}</Row></Container>
         </AnimateHeight>  
       </div>
       <div className="project-links">
