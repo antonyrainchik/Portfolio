@@ -5,17 +5,16 @@ const AboutMe = () => {
   return (
     <div className="about-me-container">
       <section className="about-me-section">
-        <h1>About Me</h1>
+        <h1>Hey! I'm <span>Antony</span> and this is what I can do!</h1>
         <img 
           src="/bioPic.jpg" // Replace with your image URL
           alt="Me!"
           className="profile-picture"
         />
         <p>
-          Hello! I'm Antony Rainchik, a Mechanical Engineer and Computer Scientist
+          I'm a Mechanical Engineer and Computer Scientist who is
           passionate about creating solutions that bridge the physical and digital worlds.
-          With a background in both disciplines, I bring a unique perspective to problem-solving
-          and innovation.
+          With a background in both disciplines, I bring a unique perspective to problem-solving, innovation and design.
         </p>
         <p>
           My journey has taken me through a diverse set of experiences, from designing
