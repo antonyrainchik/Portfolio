@@ -14,7 +14,7 @@ const AboutMe = () => {
         <p>
           I'm a Mechanical Engineer and Computer Scientist who is
           passionate about creating solutions that bridge the physical and digital worlds.
-          With a background in both disciplines, I bring a unique perspective to problem-solving, innovation and design.
+          With a background in both disciplines, I bring a unique perspective to problem-solving, innovation and.
         </p>
         <p>
           My journey has taken me through a diverse set of experiences, from designing
