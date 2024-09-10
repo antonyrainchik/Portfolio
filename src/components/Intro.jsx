@@ -7,7 +7,7 @@ const Intro = ({ onFadeComplete, backgroundImage }) => {
 
   useEffect(() => {
     // Set a timeout to fade out the intro after a certain time period
-    const timer = setTimeout(() => setFadeOut(true), 2500); // 2.5 seconds
+    const timer = setTimeout(() => setFadeOut(true), 0); // 0 seconds, might be easier than deleting
 
     return () => clearTimeout(timer);
   }, []);
@@ -17,20 +17,21 @@ const Intro = ({ onFadeComplete, backgroundImage }) => {
       // When fade out starts, set another timeout to remove the intro
       const timer = setTimeout(() => {
         onFadeComplete();
-      }, 1000); 
+      }, 0); 
 
       return () => clearTimeout(timer);
     }
   }, [fadeOut, onFadeComplete]);
 
   return (
-    <div className={`intro ${fadeOut ? 'fade-out' : ''}`} style={{ backgroundImage: `url(${backgroundImage})`} }>
-      {/* Content of your intro here */}
-      <div className={'intro-content'}>
-        <h1 style={{fontSize:50}}>Antony Rainchik's Engineering Portfolio</h1>
-        <GoGear className="loaderIcon" size='40'/>
-      </div>
-    </div>
+    // <div className={`intro ${fadeOut ? 'fade-out' : ''}`} style={{ backgroundImage: `url(${backgroundImage})`} }>
+    //   {/* Content of your intro here */}
+    //   <div className={'intro-content'}>
+    //     <h1 style={{fontSize:50}}>Antony Rainchik's Engineering Portfolio</h1>
+    //     <GoGear className="loaderIcon" size='40'/>
+    //   </div>
+    // </div>
+    <div></div>
   );
 };
 
